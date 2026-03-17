@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: api-core-template
+
+  datasource:
+    # Tenta usar a variável DB_HOST, se não existir, usa localhost
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:postgres}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:admin}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      # 'update' cria as tabelas automaticamente se elas não existirem
+      ddl-auto: update
+    show-sql: true # Mostra os comandos SQL no console para debug local
+    properties:
+      hibernate:
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # URL do Keycloak que configuramos na VPS ou rodando local
+          issuer-uri: ${KC_ISSUER_URI:http://localhost:8080/realms/master}
+          jwk-set-uri: ${KC_JWK_SET_URI:http://localhost:8080/realms/master/protocol/openid-connect/certs}
+
+server:
+  port: 8080
+  error:
+    include-message: always
