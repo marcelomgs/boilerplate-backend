@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-db:5432/keycloak_db
+    username: admin
+    password: @9018*
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak-server:8080/realms/meu-reino
+          jwk-set-uri: http://keycloak-server:8080/realms/meu-reino/protocol/openid-connect/certs
