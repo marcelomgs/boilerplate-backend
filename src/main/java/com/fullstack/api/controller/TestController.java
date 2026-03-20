@@ -17,4 +17,13 @@ public class TestController {
             "message", "API do Boilerplate rodando com sucesso!"
         );
     }
+
+    @GetMapping("/ping")
+public Map<String, String> ping() {
+    return Map.of(
+        "status", "OK",
+        "message", "Deploy automático funcionando!"
+    );
+}
+
 }
