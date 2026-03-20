@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://postgres-db:5432/keycloak_db
     username: admin
-    password: @9018*
+    password: "@9018*"
   jpa:
     hibernate:
       ddl-auto: none
