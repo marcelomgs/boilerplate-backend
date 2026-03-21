@@ -7,13 +7,12 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: false
-server:
-  port: 8080
-
-spring:
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://keycloak-server:8080/realms/meu-reino
           jwk-set-uri: http://keycloak-server:8080/realms/meu-reino/protocol/openid-connect/certs
+
+server:
+  port: 8080
